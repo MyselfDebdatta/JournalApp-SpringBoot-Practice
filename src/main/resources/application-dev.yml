@@ -8,7 +8,7 @@ spring:
   # Use MongoDB Atlas via a connection URI.
   # Replace the username/password and cluster host as needed.
   mongodb:
-    uri: mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.9nhecdn.mongodb.net/journaldb?retryWrites=true&w=majority
+    uri: mongodb+srv://Debdatta:Deb_Atlas11@cluster0.9nhecdn.mongodb.net/journaldb?retryWrites=true&w=majority
 
   data:
     mongodb:
