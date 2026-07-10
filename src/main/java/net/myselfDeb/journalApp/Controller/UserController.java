@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -121,5 +122,16 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();  //Here we get the authentication object from the security context.
         userRepository.deleteByUserName(authentication.getName());  //Here we delete the user by their username.
         return new ResponseEntity<>(HttpStatus.NO_CONTENT); // This line of code returns a ResponseEntity with an HTTP status of NO CONTENT (204) to indicate that the delete operation was successful, but there is no content to return in the response body.                                                             
+    }
+
+
+    // LECTURE NO : 29 (MASTER EXTERNAL API)
+
+    @GetMapping
+    public ResponseEntity<?> greetings() { 
+       
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();  //Here we get the authentication object from the security context.
+        
+        return new ResponseEntity<>("Welcome " + authentication.getName(), HttpStatus.OK); // This line of code returns a ResponseEntity with an HTTP status of NO CONTENT (204) to indicate that the delete operation was successful, but there is no content to return in the response body.                                                             
     }
 }
